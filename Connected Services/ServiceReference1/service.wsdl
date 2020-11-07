@@ -3,8 +3,8 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiceMtk_P1_073" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMatematika_Tambah_InputMessage">
@@ -13,11 +13,17 @@
   <wsdl:message name="IMatematika_Tambah_OutputMessage">
     <wsdl:part name="parameters" element="tns:TambahResponse" />
   </wsdl:message>
+  <wsdl:message name="IMatematika_Tambah_MathFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceMtk_P1_073" name="detail" element="q1:MathFault" />
+  </wsdl:message>
   <wsdl:message name="IMatematika_Kurang_InputMessage">
     <wsdl:part name="parameters" element="tns:Kurang" />
   </wsdl:message>
   <wsdl:message name="IMatematika_Kurang_OutputMessage">
     <wsdl:part name="parameters" element="tns:KurangResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatematika_Kurang_MathFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceMtk_P1_073" name="detail" element="q2:MathFault" />
   </wsdl:message>
   <wsdl:message name="IMatematika_Kali_InputMessage">
     <wsdl:part name="parameters" element="tns:Kali" />
@@ -25,11 +31,17 @@
   <wsdl:message name="IMatematika_Kali_OutputMessage">
     <wsdl:part name="parameters" element="tns:KaliResponse" />
   </wsdl:message>
+  <wsdl:message name="IMatematika_Kali_MathFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceMtk_P1_073" name="detail" element="q3:MathFault" />
+  </wsdl:message>
   <wsdl:message name="IMatematika_Bagi_InputMessage">
     <wsdl:part name="parameters" element="tns:Bagi" />
   </wsdl:message>
   <wsdl:message name="IMatematika_Bagi_OutputMessage">
     <wsdl:part name="parameters" element="tns:BagiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatematika_Bagi_MathFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceMtk_P1_073" name="detail" element="q4:MathFault" />
   </wsdl:message>
   <wsdl:message name="IMatematika_TKoordinat_InputMessage">
     <wsdl:part name="parameters" element="tns:TKoordinat" />
@@ -37,26 +49,34 @@
   <wsdl:message name="IMatematika_TKoordinat_OutputMessage">
     <wsdl:part name="parameters" element="tns:TKoordinatResponse" />
   </wsdl:message>
+  <wsdl:message name="IMatematika_TKoordinat_MathFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceMtk_P1_073" name="detail" element="q5:MathFault" />
+  </wsdl:message>
   <wsdl:portType name="IMatematika">
     <wsdl:operation name="Tambah">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatematika/Tambah" message="tns:IMatematika_Tambah_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatematika/TambahResponse" message="tns:IMatematika_Tambah_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMatematika/TambahMathFaultFault" name="MathFaultFault" message="tns:IMatematika_Tambah_MathFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Kurang">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatematika/Kurang" message="tns:IMatematika_Kurang_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatematika/KurangResponse" message="tns:IMatematika_Kurang_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMatematika/KurangMathFaultFault" name="MathFaultFault" message="tns:IMatematika_Kurang_MathFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Kali">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatematika/Kali" message="tns:IMatematika_Kali_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatematika/KaliResponse" message="tns:IMatematika_Kali_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMatematika/KaliMathFaultFault" name="MathFaultFault" message="tns:IMatematika_Kali_MathFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Bagi">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatematika/Bagi" message="tns:IMatematika_Bagi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatematika/BagiResponse" message="tns:IMatematika_Bagi_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMatematika/BagiMathFaultFault" name="MathFaultFault" message="tns:IMatematika_Bagi_MathFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="TKoordinat">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatematika/TKoordinat" message="tns:IMatematika_TKoordinat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatematika/TKoordinatResponse" message="tns:IMatematika_TKoordinat_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMatematika/TKoordinatMathFaultFault" name="MathFaultFault" message="tns:IMatematika_TKoordinat_MathFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="EndpointService" type="tns:IMatematika">
@@ -69,6 +89,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MathFaultFault">
+        <soap:fault use="literal" name="MathFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Kurang">
       <soap:operation soapAction="http://tempuri.org/IMatematika/Kurang" style="document" />
@@ -78,6 +101,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MathFaultFault">
+        <soap:fault use="literal" name="MathFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Kali">
       <soap:operation soapAction="http://tempuri.org/IMatematika/Kali" style="document" />
@@ -87,6 +113,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MathFaultFault">
+        <soap:fault use="literal" name="MathFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Bagi">
       <soap:operation soapAction="http://tempuri.org/IMatematika/Bagi" style="document" />
@@ -96,6 +125,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MathFaultFault">
+        <soap:fault use="literal" name="MathFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="TKoordinat">
       <soap:operation soapAction="http://tempuri.org/IMatematika/TKoordinat" style="document" />
@@ -105,6 +137,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MathFaultFault">
+        <soap:fault use="literal" name="MathFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Matematika">
